@@ -21,7 +21,7 @@ SELECT film.title, film.description, film.release_year, film.rating, film.specia
 JOIN film_actor ON film.film_id = film_actor.film_id
 WHERE film.rating = "G" AND film.special_features LIKE "%behind the scenes%" AND film_actor.actor_id = 15
 -- Query 6
-SELECT film.film_id, film.title, actor.actor_id, actor.first_name, actor.last_name FROM film
+SELECT film.film_id, film.title, actor.actor_id, CONCAT(actor.first_name, ' ', actor.last_name) AS actor_name FROM film
 JOIN film_actor ON film.film_id = film_actor.film_id
 JOIN actor ON film_actor.actor_id = actor.actor_id
 WHERE film.film_id = 369
